@@ -2,13 +2,7 @@
     "compilerOptions": {
       "outDir": "./built",
       "allowJs": true,
-      "target": "es5",
-    //   "module": "system",
-    //   "noImplicitAny": true,
-    //   "removeComments": true,
-    //   "preserveConstEnums": true,
-    //   "outFile": "../../built/local/tsc.js",
-    //   "sourceMap": true
+      "target": "es5"
     },
     "include": ["src/**/*"]
 }
