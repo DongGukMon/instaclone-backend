@@ -1,12 +1,11 @@
 import { gql } from "apollo-server";
 
 export default gql`
-  type LoginResult {
+  type uploadPhotoResult {
     ok: Boolean!
-    token: String
     error: String
   }
   type Mutation {
-    login(username: String!, password: String!): LoginResult!
+    uploadPhoto(file: String!, caption: String): uploadPhotoResult!
   }
 `;
