@@ -7,11 +7,16 @@ export default {
   Subscription: {
     roomUpdates: {
       subscribe: async (root, args, context, info) => {
-        const room = await client.room.findUnique({
-          where: { id: args.id },
+        let userId = 0;
+        if (context.loggedInUser) {
+          userId = context.loggedInUser.id;
+        }
+        const room = await client.room.findFirst({
+          where: { id: args.id, users: { some: { id: userId } } },
         });
+
         if (!room) {
-          throw new Error("Room not found");
+          throw new Error("You Shall not see this");
         }
 
         return withFilter(
