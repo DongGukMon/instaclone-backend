@@ -6,6 +6,7 @@ export default gql`
     user: User!
     userId: Int!
     room: Room!
+    roomId: Int!
     payload: String!
     read: Boolean!
     createdAt: String!

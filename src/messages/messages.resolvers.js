@@ -15,7 +15,6 @@ export default {
           where: { id },
         })
         .users();
-      console.log(users);
       return users;
     },
     messages: async ({ id }) => {
