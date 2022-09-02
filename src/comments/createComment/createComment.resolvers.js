@@ -15,7 +15,7 @@ export default {
           };
         }
 
-        await client.comment.create({
+        const newComment = await client.comment.create({
           data: {
             photo: {
               connect: {
@@ -32,6 +32,7 @@ export default {
         });
         return {
           ok: true,
+          id: newComment.id,
         };
       }
     ),

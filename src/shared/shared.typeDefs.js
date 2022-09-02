@@ -4,5 +4,6 @@ export default gql`
   type mutationResponse {
     ok: Boolean!
     error: String
+    id: Int
   }
 `;

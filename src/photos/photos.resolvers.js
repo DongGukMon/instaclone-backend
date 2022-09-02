@@ -2,16 +2,43 @@ import client from "../client";
 
 export default {
   Photo: {
-    comments: ({ id }) =>
+    isLiked: async ({ id }, __, { loggedInUser }) => {
+      const ok = await client.like.findUnique({
+        where: {
+          photoId_userId: {
+            userId: loggedInUser?.id,
+            photoId: id,
+          },
+        },
+        select: {
+          id: true,
+        },
+      });
+      if (ok) {
+        return true;
+      }
+      return false;
+    },
+    commentNumber: ({ id }) =>
       client.comment.count({
         where: {
           photoId: id,
         },
       }),
+    comments: ({ id }) =>
+      client.comment.findMany({
+        where: {
+          photoId: id,
+        },
+        include: { user: true },
+      }),
     isMine: ({ userId }, __, { loggedInUser }) => {
       return userId === loggedInUser?.id;
     },
-    user: ({ userId }) => client.user.findUnique({ where: { id: userId } }),
+    user: ({ userId }) =>
+      client.user.findUnique({
+        where: { id: userId },
+      }),
     hashtags: ({ id }) =>
       // client.photo.findUnique({ where: { id } }).hashtags(),
       client.hashtag.findMany({
