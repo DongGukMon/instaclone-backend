@@ -5,7 +5,7 @@ export default {
       client.photo.findMany({
         where: {
           caption: {
-            startsWith: keyword.toLowerCase(),
+            contains: keyword.toLowerCase(),
           },
         },
         take: 5,

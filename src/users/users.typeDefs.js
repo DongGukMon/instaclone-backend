@@ -18,5 +18,7 @@ export default gql`
     isMe: Boolean!
     isFollowing: Boolean!
     photos(page: Int!): [Photo]
+    rooms: [Room]
+    totalPhotos: Int!
   }
 `;

@@ -26,6 +26,7 @@ export default {
       return {
         ok: true,
         token,
+        id: user.id,
       };
     },
   },

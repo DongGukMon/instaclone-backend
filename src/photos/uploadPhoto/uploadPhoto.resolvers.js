@@ -13,7 +13,7 @@ export default {
 
         const fileUrl = await uploadToS3(file, loggedInUser.id, "uploads");
 
-        await client.photo.create({
+        const photo = await client.photo.create({
           data: {
             file: fileUrl,
             caption,
@@ -27,9 +27,7 @@ export default {
             }),
           },
         });
-        return {
-          ok: true,
-        };
+        return photo;
       }
     ),
   },

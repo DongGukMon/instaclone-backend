@@ -20,9 +20,9 @@ export default {
     messages: async ({ id }) => {
       const messages = await client.message.findMany({
         where: { roomId: id },
+        orderBy: { createdAt: "asc" },
       });
 
-      console.log(messages);
       return messages;
     },
     unreadTotal: ({ id }, __, { loggedInUser }) => {

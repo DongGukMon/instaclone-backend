@@ -43,8 +43,9 @@ const startServer = async () => {
     {
       schema,
       //아래와 같이 연결되었을 때와 연결 해제 되었을 때 함수를 지정할 수 있음
-      // onConnect: (params) => console.log(parmas)
       // onDisconnect:(params)=>console.log(params)
+      // onConnect: (params) => console.log(params),
+      // connectionParams는 header랑은 다르므로 직접 설정해줘야함
       context: async ({ connectionParams }) => {
         if (connectionParams) {
           return {

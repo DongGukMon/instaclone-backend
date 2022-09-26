@@ -5,6 +5,7 @@ export default gql`
     ok: Boolean!
     token: String
     error: String
+    id: Int
   }
   type Mutation {
     login(username: String!, password: String!): LoginResult!

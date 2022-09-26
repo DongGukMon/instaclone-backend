@@ -40,8 +40,22 @@ export default {
       }),
     photos: ({ id }, { page }) =>
       client.user.findUnique({ where: { id } }).photos({
-        take: 5,
+        take: 30,
         skip: (page - 1) * 5,
       }),
+    rooms: async ({ id }) =>
+      client.room.findMany({
+        where: { users: { some: { id } } },
+        select: { id: true },
+      }),
+    totalPhotos: async ({ id }) => {
+      console.log("hihi");
+      const count = await client.photo.count({
+        where: { user: { id } },
+      });
+      console.log(count);
+
+      return count;
+    },
   },
 };
