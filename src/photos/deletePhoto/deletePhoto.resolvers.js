@@ -13,7 +13,7 @@ export default {
           ok: false,
           error: "Photo not found",
         };
-      } else if (photo.userId === loggedInUser.id) {
+      } else if (photo.userId !== loggedInUser.id) {
         return {
           ok: false,
           error: "Not authorized",
