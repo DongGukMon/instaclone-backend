@@ -17,7 +17,7 @@ export default {
     },
     isMe: ({ id }, _, { loggedInUser }) => {
       //seeProfile의 username을 잘못입력하면 애초에 User 자체를 반환하지 않으니, User의 Computed Fields인 isMe를 resolve 시도조차 하지 않는다.
-      //username을 막 입력하면 console.log(loggedInUser가 찍히지 않는 이유)
+      //username을 막 입력하면 console.log(loggedInUser)가 찍히지 않는 이유
       return id === loggedInUser?.id;
     },
     //아래 두가지 방법 중 뭐가 더 나은 방법인지 나중에 알아보자!
