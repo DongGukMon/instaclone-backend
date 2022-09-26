@@ -67,7 +67,6 @@ export default {
       const totalPhotos = await client.photo.count({
         where: { hashtags: { some: { id } } },
       });
-      console.log(totalPhotos);
       return Math.ceil(totalPhotos / 5);
     },
     totalPhotos: ({ id }) =>

@@ -49,11 +49,9 @@ export default {
         select: { id: true },
       }),
     totalPhotos: async ({ id }) => {
-      console.log("hihi");
       const count = await client.photo.count({
         where: { user: { id } },
       });
-      console.log(count);
 
       return count;
     },
