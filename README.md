@@ -14,9 +14,9 @@
 ## 구현 범위
 
 ### User:
-- [x] Create Account
-- [x] See Profile
+- [x] Create Account (with jwt)
 - [x] Login
+- [x] See Profile
 - [x] Edit Profile
 - [x] Follow User
 - [x] Unfollow User
