@@ -70,6 +70,7 @@ export default {
         return {
           ok: true,
           id: message.id,
+          roomId: room.id,
         };
       }
     ),
